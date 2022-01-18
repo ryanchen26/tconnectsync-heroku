@@ -70,7 +70,7 @@ if interval_mins:
     def scheduled_update_task():
         print('Running update scheduler task')
         #Changed parse_features(None) to parse_features(request.values.get("features"))
-        run_update(1, False, parse_features(request.values.get("features")))
+        run_update(1, False, parse_features(None))
         print('Finished update scheduler task')
 
 if __name__ == '__main__':

@@ -69,7 +69,8 @@ if interval_mins:
     @scheduler.task('interval', id='update', seconds=interval_mins * 60, misfire_grace_time=300)
     def scheduled_update_task():
         print('Running update scheduler task')
-        run_update(1, False, parse_features(None))
+        #Changed parse_features(None) to parse_features(request.values.get("features"))
+        run_update(1, False, parse_features(request.values.get("features")))
         print('Finished update scheduler task')
 
 if __name__ == '__main__':
